@@ -64,6 +64,36 @@ export const metadata: Metadata = {
   },
 };
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Utsarga Manandhar",
+  url: "https://utsargamanandhar.com.np",
+  image: "https://utsargamanandhar.com.np/Utsarga.jpg",
+  jobTitle: "Frontend Developer",
+  description:
+    "Frontend Developer specializing in React, Next.js, TypeScript and modern web development.",
+  email: "mailto:utsargam44@gmail.com",
+  workFor: "Global Square IT Company",
+  alumniOf: "Tribuvan University",
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "Node.js",
+    "Tanstack Start",
+    "MongoDb",
+    "Postgres SQL",
+    "Nest.js",
+  ],
+  sameAs: [
+    "https://github.com/hilubabz",
+    "https://linkedin.com/in/utsargamanandhar",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -90,6 +120,12 @@ export default function RootLayout({
             {children}
           </SidebarProvider>
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
       </body>
     </html>
   );
