@@ -11,6 +11,9 @@ export const metadata: Metadata = {
       "Discover the technical skills and tools used by Utsarga Manandhar, including React, Next.js, TypeScript, Tailwind CSS, Node.js, and more.",
     url: "https://utsargamanandhar.com.np/skills",
   },
+  alternates: {
+    canonical: "/skills",
+  },
 };
 
 export default function Skills() {

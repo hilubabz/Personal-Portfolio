@@ -11,6 +11,9 @@ export const metadata: Metadata = {
       "Browse web development projects built by Utsarga Manandhar using React, Next.js, TypeScript, and modern technologies.",
     url: "https://utsargamanandhar.com.np/projects",
   },
+  alternates: {
+    canonical: "/projects",
+  },
 };
 
 export default function ProjectPage() {

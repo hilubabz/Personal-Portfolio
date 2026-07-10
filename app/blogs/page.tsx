@@ -11,6 +11,9 @@ export const metadata: Metadata = {
       "Read articles on frontend development, React, Next.js, JavaScript, TypeScript, and web technologies by Utsarga Manandhar.",
     url: "https://utsargamanandhar.com.np/vlogs",
   },
+  alternates: {
+    canonical: "/blogs",
+  },
 };
 
 export default function BlogsPage() {
