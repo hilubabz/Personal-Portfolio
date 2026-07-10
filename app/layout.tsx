@@ -5,6 +5,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/Common/theme-provider";
 import { MobileSidebar } from "@/components/Common/mobile-sidebar";
 import localFont from "next/font/local";
+import { Metadata } from "next";
 
 const Inter = localFont({
   src: [
@@ -26,6 +27,42 @@ const Inter = localFont({
     },
   ],
 });
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://utsargamanandhar.com.np"),
+  title: {
+    default: "Utsarga Manandhar | Frontend Developer",
+    template: "%s | Utsarga Manandhar",
+  },
+  description:
+    "Frontend Developer specializing in React, Next.js, TypeScript, and modern web technologies.",
+
+  openGraph: {
+    title: "Utsarga Manandhar | Frontend Developer",
+    description:
+      "Explore my portfolio showcasing projects, skills, and experience.",
+    url: "https://utsargamanandhar.com.np",
+    siteName: "Utsarga Manandhar",
+    images: [
+      {
+        url: "/Logo2.png",
+        width: 1200,
+        height: 630,
+        alt: "Utsarga Manandhar Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Utsarga Manandhar | Frontend Developer",
+    description:
+      "Explore my portfolio showcasing projects, skills, and experience.",
+    images: ["/Logo2.png"],
+  },
+};
 
 export default function RootLayout({
   children,
