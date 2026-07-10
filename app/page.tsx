@@ -2,6 +2,13 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import ScrollAnimate from "@/framer/scroll-animate";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Utsarga Manandhar | Portfolio",
+  description:
+    "A polished personal portfolio showcasing projects, skills, experience, and contact details.",
+};
 
 export default function Home() {
   return (
@@ -64,10 +71,11 @@ export default function Home() {
                   <div className="h-64 w-full max-w-[18rem] rounded-[2rem] border border-white/10 bg-background/70 p-2 shadow-2xl shadow-black/20 backdrop-blur">
                     <div className="flex h-full items-center justify-center rounded-[1.5rem] border border-dashed border-red-500/30 bg-linear-to-br from-red-500/10 to-transparent text-center text-sm font-medium text-muted-foreground">
                       <Image
-                        src={"/Utsarga.jpg"}
+                        src={"/Utsarga.webp"}
                         alt="Utsarga Manandhar Profile Image"
-                        fill
-                        className="h-full w-full object-cover rounded-[1.5rem]"
+                        height={64}
+                        width={228}
+                        priority
                       ></Image>
                     </div>
                   </div>

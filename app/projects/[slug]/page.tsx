@@ -42,7 +42,7 @@ export default function ProjectDetailPage({
               }}
             />
             <div
-              className={`absolute inset-0 bg-gradient-to-t ${project.accent} via-transparent to-transparent opacity-80`}
+              className={`absolute inset-0 bg-linear-to-t ${project.accent} via-transparent to-transparent opacity-80`}
             />
           </div>
 

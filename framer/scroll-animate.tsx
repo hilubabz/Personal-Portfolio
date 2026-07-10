@@ -4,50 +4,64 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { ReactNode, useEffect, useRef } from "react";
 
 export default function ScrollAnimate({ children }: { children: ReactNode }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  const visibleAppear = useAnimation();
+  const ref = useRef<HTMLDivElement>(null);
 
-  const slideRef = useRef(null);
-  const slideView = useInView(slideRef, { once: true });
-  const slideAnimate = useAnimation();
+  const inView = useInView(ref, {
+    once: true,
+    amount: 0.2,
+  });
+
+  const textControls = useAnimation();
+  const barControls = useAnimation();
 
   useEffect(() => {
     if (inView) {
-      visibleAppear.start("visible");
+      textControls.start("visible");
+      barControls.start("slide");
     }
-  }, [inView]);
+  }, [inView, textControls, barControls]);
 
-  useEffect(() => {
-    if (slideView) {
-      slideAnimate.start("slide");
-    }
-  }, [slideView]);
   return (
-    <div className="relative overflow-hidden">
+    <div ref={ref} className="relative overflow-hidden">
       <motion.div
-        ref={ref}
         variants={{
-          hidden: { opacity: 0, y: 25 },
-          visible: { opacity: 1, y: 0 },
+          hidden: {
+            opacity: 0,
+            y: 25,
+          },
+          visible: {
+            opacity: 1,
+            y: 0,
+          },
         }}
         initial="hidden"
-        animate={visibleAppear}
-        transition={{ duration: 0.5, delay: 0.25 }}
+        animate={textControls}
+        transition={{
+          duration: 0.5,
+          delay: 0.25,
+          ease: "easeOut",
+        }}
       >
         {children}
       </motion.div>
+
       <motion.div
-        className="absolute left-0 right-0 bottom-0 top-0 bg-red-700 z-20"
-        ref={slideRef}
+        className="absolute inset-0 z-20 bg-red-700"
         variants={{
-          appear: { left: 0 },
-          slide: { left: "100%" },
+          appear: {
+            x: "0%",
+          },
+          slide: {
+            x: "100%",
+          },
         }}
         initial="appear"
-        animate={slideAnimate}
-        transition={{ duration: 0.5 }}
-      ></motion.div>
+        animate={barControls}
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
+        }}
+      />
     </div>
   );
 }

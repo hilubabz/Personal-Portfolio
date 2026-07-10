@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 
 const contactOptions = [
@@ -21,6 +22,12 @@ const contactOptions = [
     icon: MapPin,
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Contact Me",
+  description:
+    "A list of ways you can contact Utsarga Manandhar.",
+};
 
 export default function ContactPage() {
   return (

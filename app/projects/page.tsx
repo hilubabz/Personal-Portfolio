@@ -13,9 +13,11 @@ import { SiMysql } from "react-icons/si";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 const projects = [
   {
     name: "SocialSphere",
+    alt: "A social media app developed using Next.js and MongoDb",
     language: ["Next.js", "MongoDB", "Python"],
     image: "SocialSphere.png",
     color: "#1b2951",
@@ -24,6 +26,7 @@ const projects = [
   },
   {
     name: "Messayo",
+    alt: "A real time messaging app devloped using React, Express.js, MongoDB and Socket.io",
     language: ["React.js", "Express.js", "MongoDB"],
     image: "Messayo.png",
     color: "#f8f9fa",
@@ -32,6 +35,7 @@ const projects = [
   },
   {
     name: "HavocAura",
+    alt: "A laptop and computer parts ecommerce system developed using React.js",
     language: ["React.js", "Express.js", "MongoDB"],
     image: "HavocAura.png",
     color: "#2d1b69",
@@ -40,6 +44,7 @@ const projects = [
   },
   {
     name: "Gaidim",
+    alt: "A travel management app developed using HTML, CSS, JS, and PHP",
     language: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     image: "Gaidim.png",
     color: "#f9f9f9",
@@ -48,6 +53,7 @@ const projects = [
   },
   {
     name: "Furniture Classification",
+    alt: "A ML Model used to classify different furnitures",
     language: ["Python"],
     image: "Python.png",
     color: "#2d1b69",
@@ -56,6 +62,7 @@ const projects = [
   },
   {
     name: "Rock Paper Scissors",
+    alt: "A simple Rock Paper Scissors game developed using HTML, CSS, and JS",
     language: ["HTML", "CSS", "JavaScript"],
     image: "Rock.png",
     color: "#f9f9f9",
@@ -64,6 +71,7 @@ const projects = [
   },
   {
     name: "To Do List",
+    alt: "A simple to do list developed using React",
     language: ["React.js", "TypeScript"],
     image: "ToDoList.png",
     color: "#2d1b69",
@@ -71,6 +79,12 @@ const projects = [
       "A simple To-Do List developed using React + TypeScript. Users can simply add tasks and then remove the tasks. The tasks are stored in local storage so the user can access it when they return to the website.",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "A list of projects developed by Utsarga Manandhar.",
+};
+
 export default function ProjectPage() {
   const [hover, setHover] = useState(-1);
   const [visible, setVisible] = useState(false);
@@ -92,7 +106,7 @@ export default function ProjectPage() {
         >
           <Image
             src={`/${val.image}`}
-            alt=""
+            alt={val.alt}
             width={310}
             height={210}
             className={`w-full h-[50%] object-contain rounded-t-xl`}

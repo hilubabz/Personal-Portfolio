@@ -1,29 +1,31 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Common/navbar";
 import { cn } from "@/lib/utils";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/Common/theme-provider";
 import { MobileSidebar } from "@/components/Common/mobile-sidebar";
+import localFont from "next/font/local";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const Inter = localFont({
+  src: [
+    {
+      path: "../fonts/Inter-Regular.otf",
+      weight: "400",
+    },
+    {
+      path: "../fonts/Inter-Medium.otf",
+      weight: "500",
+    },
+    {
+      path: "../fonts/Inter-SemiBold.otf",
+      weight: "600",
+    },
+    {
+      path: "../fonts/Inter-Bold.otf",
+      weight: "700",
+    },
+  ],
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Utsarga Manandhar | Portfolio",
-  description:
-    "A polished personal portfolio showcasing projects, skills, experience, and contact details.",
-};
 
 export default function RootLayout({
   children,
@@ -31,18 +33,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={cn(
-        "h-full",
-        "antialiased",
-        geistSans.variable,
-        geistMono.variable,
-        "font-sans",
-        inter.variable,
-      )}
-    >
-      <body className="min-h-full flex flex-col overflow-x-hidden transition-all duration-500">
+    <html lang="en" className={cn("h-full", "antialiased")}>
+      <body
+        className={`min-h-full flex flex-col overflow-x-hidden transition-all duration-500 ${Inter.className}`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

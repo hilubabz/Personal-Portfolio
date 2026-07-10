@@ -1,5 +1,12 @@
 import { SKILLS } from "@/constants/skills";
 import ScrollAnimate from "@/framer/scroll-animate";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Skills",
+  description:
+    "A list of skills learned by Utsarga Manandhar.",
+};
 
 export default function Skills() {
   return (

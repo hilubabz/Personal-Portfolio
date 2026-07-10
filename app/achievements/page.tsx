@@ -1,4 +1,5 @@
 import { Award, Sparkles, Trophy } from "lucide-react";
+import { Metadata } from "next";
 
 const achievements = [
   {
@@ -20,6 +21,12 @@ const achievements = [
     icon: Award,
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Achievements",
+  description:
+    "A list of achievements.",
+};
 
 export default function AchievementsPage() {
   return (

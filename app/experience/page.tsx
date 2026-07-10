@@ -3,6 +3,13 @@ import { HiAcademicCap } from "react-icons/hi2";
 import { IoIosStar } from "react-icons/io";
 import SlideAnimate from "@/framer/slide-animate";
 import PopUpAnimate from "@/framer/pop-up-animate";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Professional Experience",
+  description:
+    "The collection of education and professional experience of Utsarga Manandhar.",
+};
 
 export default function Page() {
   const professional = [

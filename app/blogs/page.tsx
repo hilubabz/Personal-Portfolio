@@ -1,4 +1,5 @@
 import { ArrowRight, PenTool } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 
 const posts = [
@@ -21,6 +22,12 @@ const posts = [
     readTime: "3 min read",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Blogs",
+  description:
+    "A  collection of blogs writted by Utsarga Manandhar",
+};
 
 export default function BlogsPage() {
   return (
