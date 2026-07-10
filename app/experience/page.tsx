@@ -2,12 +2,13 @@ import { ExperienceComponent } from "@/features/experience/experience-component"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Professional Experience",
+  title: "Experience | Utsarga Manandhar – Frontend Developer",
   description:
-    "The collection of education and professional experience of Utsarga Manandhar.",
+    "Explore the professional experience of Utsarga Manandhar, including internships and frontend development roles.",
   openGraph: {
-    title: "experience | Utsarga Manandhar",
-    description: "All of my experiences.",
+    title: "Experience | Utsarga Manandhar – Frontend Developer",
+    description:
+      "Explore the professional experience of Utsarga Manandhar, including internships and frontend development roles.",
     url: "https://utsargamanandhar.com.np/experience",
   },
 };
