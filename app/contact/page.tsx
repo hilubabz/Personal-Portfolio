@@ -2,11 +2,13 @@ import { ContactComponent } from "@/features/contact/contact-component";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Me",
-  description: "A list of ways you can contact Utsarga Manandhar.",
+  title: "Contact | Utsarga Manandhar",
+  description:
+    "Get in touch with Utsarga Manandhar for job opportunities, collaborations, or freelance frontend development work.",
   openGraph: {
     title: "Contact | Utsarga Manandhar",
-    description: "Ways you can contact me.",
+    description:
+      "Get in touch with Utsarga Manandhar for job opportunities, collaborations, or freelance frontend development work.",
     url: "https://utsargamanandhar.com.np/contact",
   },
 };

@@ -40,12 +40,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Utsarga Manandhar | Frontend Developer",
     description:
-      "Explore my portfolio showcasing projects, skills, and experience.",
+      "Portfolio of Utsarga Manandhar, a Frontend Developer specializing in React, Next.js, TypeScript, and modern web applications.",
     url: "https://utsargamanandhar.com.np",
     siteName: "Utsarga Manandhar",
     images: [
       {
-        url: "/Logo2.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Utsarga Manandhar Portfolio",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Utsarga Manandhar | Frontend Developer",
     description:
       "Explore my portfolio showcasing projects, skills, and experience.",
-    images: ["/Logo2.png"],
+    images: ["/og-image.png"],
   },
 };
 

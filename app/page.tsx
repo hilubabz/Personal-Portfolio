@@ -2,9 +2,9 @@ import { Home } from "@/features/home/home";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Utsarga Manandhar | Portfolio",
+  title: "Utsarga Manandhar | Junior Frontend Developer",
   description:
-    "A polished personal portfolio showcasing projects, skills, experience, and contact details.",
+    "Portfolio of Utsarga Manandhar, a Frontend Developer specializing in React, Next.js, TypeScript, and modern web applications.",
 };
 
 export default function Page() {
