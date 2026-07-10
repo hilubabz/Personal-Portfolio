@@ -1,3 +1,4 @@
+import { Home } from "@/features/home/home";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,6 +7,6 @@ export const metadata: Metadata = {
     "A polished personal portfolio showcasing projects, skills, experience, and contact details.",
 };
 
-export default function Home() {
+export default function Page() {
   return <Home />;
 }
