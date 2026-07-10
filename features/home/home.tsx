@@ -15,13 +15,17 @@ export const Home = () => {
             </div>
           </ScrollAnimate>
           <ScrollAnimate>
-            <div className="space-y-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-red-500">
-                Hi, I&apos;m
-              </p>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            <div className="flex flex-col gap-2">
+              <h1 className="flex flex-wrap items-baseline gap-3 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                <span className="text-sm font-semibold uppercase tracking-[0.3em] text-red-500">
+                  I&apos;m
+                </span>
                 Utsarga Manandhar
               </h1>
+              <p className="text-base text-muted-foreground">
+                A Full Stack Developer specializing in Next.js, React, Node.js,
+                Express, MongoDB, and AI-powered web applications.
+              </p>
             </div>
           </ScrollAnimate>
           <ScrollAnimate>
