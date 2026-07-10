@@ -4,6 +4,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Skills",
   description: "A list of skills learned by Utsarga Manandhar.",
+  openGraph: {
+    title: "Skills | Utsarga Manandhar",
+    description: "A collection of my skills.",
+    url: "https://utsargamanandhar.com.np/skills",
+  },
 };
 
 export default function Skills() {
