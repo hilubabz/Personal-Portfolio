@@ -11,6 +11,9 @@ export const metadata: Metadata = {
       "Get in touch with Utsarga Manandhar for job opportunities, collaborations, or freelance frontend development work.",
     url: "https://utsargamanandhar.com.np/contact",
   },
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

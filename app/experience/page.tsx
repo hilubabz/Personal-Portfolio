@@ -11,6 +11,9 @@ export const metadata: Metadata = {
       "Explore the professional experience of Utsarga Manandhar, including internships and frontend development roles.",
     url: "https://utsargamanandhar.com.np/experience",
   },
+  alternates: {
+    canonical: "/experience",
+  },
 };
 
 export default function Page() {
