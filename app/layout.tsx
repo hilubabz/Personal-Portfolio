@@ -102,7 +102,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("h-full", "antialiased")}>
       <body
-        className={`min-h-full flex flex-col overflow-x-hidden transition-all duration-500 ${Inter.className}`}
+        className={`min-h-dvh flex flex-col overflow-x-hidden transition-all duration-500 ${Inter.className}`}
       >
         <ThemeProvider
           attribute="class"
