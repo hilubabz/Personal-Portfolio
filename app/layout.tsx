@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/Common/theme-provider";
 import { MobileSidebar } from "@/components/Common/mobile-sidebar";
 import localFont from "next/font/local";
 import { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 
 const Inter = localFont({
   src: [
@@ -104,28 +105,30 @@ export default function RootLayout({
       <body
         className={`min-h-dvh flex flex-col overflow-x-hidden transition-all duration-500 ${Inter.className}`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <SidebarProvider defaultOpen={false} className="flex flex-col">
-            <div className="md:hidden">
-              <MobileSidebar />
-            </div>
-            <div className="hidden md:block">
-              <Navbar />
-            </div>
-            {children}
-          </SidebarProvider>
-        </ThemeProvider>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personSchema),
-          }}
-        />
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SidebarProvider defaultOpen={false} className="flex flex-col">
+              <div className="md:hidden">
+                <MobileSidebar />
+              </div>
+              <div className="hidden md:block">
+                <Navbar />
+              </div>
+              {children}
+            </SidebarProvider>
+          </ThemeProvider>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(personSchema),
+            }}
+          />
+        </SessionProvider>
       </body>
     </html>
   );
