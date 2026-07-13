@@ -1,3 +1,6 @@
+@import '../styles/_variables.scss';
+@import '../styles/_keyframe-animations.scss';
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -140,7 +143,7 @@
   body {
     @apply bg-background text-foreground;
     position: relative;
-    min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
   }
 
