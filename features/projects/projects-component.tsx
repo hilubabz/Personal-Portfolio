@@ -42,12 +42,12 @@ export const ProjectsComponent = () => {
     <div className="page-shell min-h-screen px-4 py-12 sm:px-6 md:px-10 lg:px-20 lg:py-16">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center sm:mb-16">
-          <div className="relative inline-block text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+          <h1 className="relative inline-block text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
             <ScrollAnimate>
               Projects
               <div className="absolute -bottom-2 left-0 h-1 w-1/2 rounded-full bg-red-600 transition-all duration-500" />
             </ScrollAnimate>
-          </div>
+          </h1>
         </div>
 
         <motion.div
