@@ -30,7 +30,7 @@ export const SkillsComponent = () => {
         <div className="mb-12 text-center sm:mb-16">
           <div className="relative inline-block text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
             <ScrollAnimate>
-              Tech Skills
+              <h1>Tech Skills</h1>
               <div className="absolute -bottom-2 left-0 h-1 w-1/2 rounded-full bg-red-600 transition-all duration-500" />
             </ScrollAnimate>
           </div>
@@ -66,18 +66,18 @@ export const SkillsComponent = () => {
                   <div
                     key={ind}
                     className="page-surface group flex min-h-35 flex-col items-center justify-center gap-3 rounded-2xl p-4 text-center hover:-translate-y-2 hover:border-red-500/50 hover:shadow-xl hover:shadow-red-500/10"
-                    style={{ transition: 'all 0.3s ease-out' }}
+                    style={{ transition: "all 0.3s ease-out" }}
                   >
-                    <div 
+                    <div
                       className="rounded-2xl bg-red-500/10 p-3 text-red-500 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-red-500/30"
-                      style={{ transition: 'all 0.3s ease-out' }}
+                      style={{ transition: "all 0.3s ease-out" }}
                     >
                       <value.icon className="text-3xl sm:text-4xl" />
                     </div>
                     <div className="space-y-1">
-                      <div 
+                      <div
                         className="text-sm font-semibold text-foreground sm:text-base group-hover:text-red-500"
-                        style={{ transition: 'all 0.3s ease-out' }}
+                        style={{ transition: "all 0.3s ease-out" }}
                       >
                         {value.language}
                       </div>
