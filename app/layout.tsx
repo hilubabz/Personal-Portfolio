@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://utsargamanandhar.com.np"),
   title: {
     default: "Utsarga Manandhar | Frontend Developer",
-    template: "%s | Utsarga Manandhar",
+    template: "",
   },
   description:
     "Frontend Developer specializing in React, Next.js, TypeScript, and modern web technologies.",

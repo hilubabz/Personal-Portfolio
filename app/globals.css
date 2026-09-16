@@ -134,6 +134,10 @@
   .page-surface-soft {
     @apply rounded-2xl border border-border/60 bg-background/70;
   }
+
+  .smooth-transition {
+    transition: all 0.3s ease-out !important;
+  }
 }
 
 @layer base {
