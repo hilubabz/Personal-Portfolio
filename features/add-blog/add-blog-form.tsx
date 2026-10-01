@@ -1,3 +1,4 @@
+import { createBlog } from "@/actions/blog";
 import { SimpleEditor } from "@/components/tiptap-templates/simple/simple-editor";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -17,7 +18,15 @@ export const AddBlogForm = () => {
     };
   }, [imageUrl]);
 
-  
+  const addBlog = async () => {
+    await createBlog({
+      title: "aa",
+      content: "aa",
+      coverImage: "aa",
+      metaDescription: "aa",
+    });
+  };
+
   const [content, setContent] = useState("");
   return (
     <form>
@@ -26,12 +35,14 @@ export const AddBlogForm = () => {
           type="text"
           className="w-full rounded-3xl border border-zinc-200/70 p-6 shadow-[0_20px_60px_-24px_rgba(15,23,42,0.35)] backdrop-blur-xl dark:border-zinc-800/70"
           placeholder="Title"
+          name="title"
         />
 
         <input
           type="text"
           className="w-full rounded-3xl border border-zinc-200/70 p-6 shadow-[0_20px_60px_-24px_rgba(15,23,42,0.35)] backdrop-blur-xl dark:border-zinc-800/70"
           placeholder="Meta Description"
+          name="metaDescription"
         />
         <input
           type="file"
@@ -67,7 +78,9 @@ export const AddBlogForm = () => {
         <SimpleEditor value={content} onChange={setContent} />
       </div>
 
-      <Button className={"cursor-pointer mt-4 w-full"}>Add Blog</Button>
+      <Button className={"cursor-pointer mt-4 w-full"} onClick={addBlog}>
+        Add Blog
+      </Button>
     </form>
   );
 };
