@@ -2,13 +2,13 @@ import { AchievementsComponent } from "@/features/achievements/achievements-comp
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Achievements | Utsarga Manandhar",
+  title: "Achievements",
   description:
-    "View certifications, awards, and notable achievements earned by Utsarga Manandhar.",
+    "Notable achievements and milestones in the career of Utsarga Manandhar, Full Stack Developer.",
   openGraph: {
     title: "Achievements | Utsarga Manandhar",
     description:
-      "View certifications, awards, and notable achievements earned by Utsarga Manandhar.",
+      "Notable achievements and milestones of Utsarga Manandhar.",
     url: "https://utsargamanandhar.com.np/achievements",
   },
   alternates: {

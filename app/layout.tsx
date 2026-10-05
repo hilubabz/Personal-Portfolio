@@ -1,47 +1,43 @@
 import "./globals.css";
-import { Navbar } from "@/components/Common/navbar";
+import { StaggeredNavbar } from "@/components/Common/StaggeredNavbar";
 import { cn } from "@/lib/utils";
-import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/Common/theme-provider";
-import { MobileSidebar } from "@/components/Common/mobile-sidebar";
+import { Footer } from "@/components/layout/footer";
 import localFont from "next/font/local";
+import { Space_Grotesk } from "next/font/google";
 import { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
+import { LoadingScreen } from "@/components/Common/LoadingScreen";
 
-const Inter = localFont({
+const inter = localFont({
   src: [
-    {
-      path: "../fonts/Inter-Regular.otf",
-      weight: "400",
-    },
-    {
-      path: "../fonts/Inter-Medium.otf",
-      weight: "500",
-    },
-    {
-      path: "../fonts/Inter-SemiBold.otf",
-      weight: "600",
-    },
-    {
-      path: "../fonts/Inter-Bold.otf",
-      weight: "700",
-    },
+    { path: "../fonts/Inter-Regular.otf", weight: "400" },
+    { path: "../fonts/Inter-Medium.otf", weight: "500" },
+    { path: "../fonts/Inter-SemiBold.otf", weight: "600" },
+    { path: "../fonts/Inter-Bold.otf", weight: "700" },
   ],
+  variable: "--font-body",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://utsargamanandhar.com.np"),
   title: {
-    default: "Utsarga Manandhar | Frontend Developer",
-    template: "",
+    default: "Utsarga Manandhar | Full Stack Developer",
+    template: "%s | Utsarga Manandhar",
   },
   description:
-    "Frontend Developer specializing in React, Next.js, TypeScript, and modern web technologies.",
+    "Full Stack Developer specializing in Next.js, React, TypeScript, Node.js, and modern web technologies.",
 
   openGraph: {
-    title: "Utsarga Manandhar | Frontend Developer",
+    title: "Utsarga Manandhar | Full Stack Developer",
     description:
-      "Portfolio of Utsarga Manandhar, a Frontend Developer specializing in React, Next.js, TypeScript, and modern web applications.",
+      "Full Stack Developer building modern web applications with Next.js, React, TypeScript, and Node.js.",
     url: "https://utsargamanandhar.com.np",
     siteName: "Utsarga Manandhar",
     images: [
@@ -49,7 +45,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Utsarga Manandhar Portfolio",
+        alt: "Utsarga Manandhar — Full Stack Developer",
       },
     ],
     locale: "en_US",
@@ -58,9 +54,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Utsarga Manandhar | Frontend Developer",
+    title: "Utsarga Manandhar | Full Stack Developer",
     description:
-      "Explore my portfolio showcasing projects, skills, and experience.",
+      "Full Stack Developer building modern web applications with Next.js, React, TypeScript, and Node.js.",
     images: ["/og-image.png"],
   },
 };
@@ -71,12 +67,15 @@ const personSchema = {
   name: "Utsarga Manandhar",
   url: "https://utsargamanandhar.com.np",
   image: "https://utsargamanandhar.com.np/Utsarga.jpg",
-  jobTitle: "Frontend Developer",
+  jobTitle: "Full Stack Developer",
   description:
-    "Frontend Developer specializing in React, Next.js, TypeScript and modern web development.",
+    "Full Stack Developer specializing in Next.js, React, TypeScript, Node.js and modern web development.",
   email: "mailto:utsargam44@gmail.com",
-  workFor: "Global Square IT Company",
-  alumniOf: "Tribuvan University",
+  worksFor: {
+    "@type": "Organization",
+    name: "Global Square IT Company",
+  },
+  alumniOf: "Tribhuvan University",
   knowsAbout: [
     "React",
     "Next.js",
@@ -84,10 +83,9 @@ const personSchema = {
     "JavaScript",
     "Tailwind CSS",
     "Node.js",
-    "Tanstack Start",
-    "MongoDb",
-    "Postgres SQL",
-    "Nest.js",
+    "Go",
+    "MongoDB",
+    "PostgreSQL",
   ],
   sameAs: [
     "https://github.com/hilubabz",
@@ -101,9 +99,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full", "antialiased")}>
+    <html
+      lang="en"
+      className={cn("h-full", inter.variable, spaceGrotesk.variable)}
+      suppressHydrationWarning
+    >
       <body
-        className={`min-h-dvh flex flex-col overflow-x-hidden transition-all duration-500 ${Inter.className}`}
+        className={`flex min-h-dvh flex-col overflow-x-hidden antialiased ${inter.className}`}
       >
         <SessionProvider>
           <ThemeProvider
@@ -112,15 +114,18 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <SidebarProvider defaultOpen={false} className="flex flex-col">
-              <div className="md:hidden">
-                <MobileSidebar />
-              </div>
-              <div className="hidden md:block">
-                <Navbar />
-              </div>
-              {children}
-            </SidebarProvider>
+            {/* Premium Background Effects (Light & Dark Mode) */}
+            <div className="fixed inset-0 z-[-1] pointer-events-none bg-background">
+              {/* Fading Grid Pattern */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#818cf810_1px,transparent_1px),linear-gradient(to_bottom,#818cf810_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#818cf815_1px,transparent_1px),linear-gradient(to_bottom,#818cf815_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+              {/* Primary Color Glow Orb */}
+              <div className="absolute top-[-15%] left-1/2 -translate-x-1/2 w-150 h-150 rounded-full bg-primary/5 dark:bg-primary/10 blur-[120px]"></div>
+            </div>
+
+            <LoadingScreen />
+            <StaggeredNavbar />
+            <div className="flex-1 relative z-0">{children}</div>
+            <Footer />
           </ThemeProvider>
           <script
             type="application/ld+json"

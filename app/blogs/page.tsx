@@ -2,13 +2,13 @@ import { BlogComponent } from "@/features/blogs/blog-component";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog | Utsarga Manandhar – Frontend Development",
+  title: "Blog",
   description:
-    "Read articles on frontend development, React, Next.js, JavaScript, TypeScript, and web technologies by Utsarga Manandhar.",
+    "Articles on web development, React, Next.js, TypeScript, and modern technologies by Utsarga Manandhar.",
   openGraph: {
-    title: "Blog | Utsarga Manandhar – Frontend Development",
+    title: "Blog | Utsarga Manandhar",
     description:
-      "Read articles on frontend development, React, Next.js, JavaScript, TypeScript, and web technologies by Utsarga Manandhar.",
+      "Articles on web development and modern technologies by Utsarga Manandhar.",
     url: "https://utsargamanandhar.com.np/blogs",
   },
   alternates: {

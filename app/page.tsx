@@ -2,9 +2,9 @@ import { Home } from "@/features/home/home";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Utsarga Manandhar | Junior Frontend Developer",
+  title: "Utsarga Manandhar | Full Stack Developer",
   description:
-    "Portfolio of Utsarga Manandhar, a Frontend Developer specializing in React, Next.js, TypeScript, and modern web applications.",
+    "Full Stack Developer building modern web applications with Next.js, React, TypeScript, and Node.js.",
   alternates: {
     canonical: "/",
   },

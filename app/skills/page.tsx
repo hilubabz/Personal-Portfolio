@@ -2,13 +2,13 @@ import { SkillsComponent } from "@/features/skills/skillls-component";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Skills | Utsarga Manandhar – React, Next.js, TypeScript",
+  title: "Skills",
   description:
-    "Discover the technical skills and tools used by Utsarga Manandhar, including React, Next.js, TypeScript, Tailwind CSS, Node.js, and more.",
+    "Technical skills and technologies used by Utsarga Manandhar: React, Next.js, TypeScript, Node.js, Go, MongoDB, and more.",
   openGraph: {
-    title: "Skills | Utsarga Manandhar – React, Next.js, TypeScript",
+    title: "Skills | Utsarga Manandhar",
     description:
-      "Discover the technical skills and tools used by Utsarga Manandhar, including React, Next.js, TypeScript, Tailwind CSS, Node.js, and more.",
+      "Technical skills and technologies used by Utsarga Manandhar, Full Stack Developer.",
     url: "https://utsargamanandhar.com.np/skills",
   },
   alternates: {
