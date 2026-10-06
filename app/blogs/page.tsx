@@ -3,7 +3,7 @@ import { BlogComponent } from "@/features/blogs/blog-component";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blogs & Articles",
   description:
     "Articles on web development, React, Next.js, TypeScript, and modern technologies by Utsarga Manandhar.",
   openGraph: {

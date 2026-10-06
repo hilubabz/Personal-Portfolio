@@ -2,7 +2,7 @@ import { SkillsComponent } from "@/features/skills/skillls-component";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Skills",
+  title: "Technical Skills",
   description:
     "Technical skills and technologies used by Utsarga Manandhar: React, Next.js, TypeScript, Node.js, Go, MongoDB, and more.",
   openGraph: {

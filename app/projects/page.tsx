@@ -2,7 +2,7 @@ import { ProjectsComponent } from "@/features/projects/projects-component";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Projects & Works",
   description:
     "Web development projects built by Utsarga Manandhar using React, Next.js, TypeScript, Go, and modern technologies.",
   openGraph: {
