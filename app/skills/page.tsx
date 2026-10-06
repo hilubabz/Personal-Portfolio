@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Skills | Utsarga Manandhar",
     description:
-      "Technical skills and technologies used by Utsarga Manandhar, Full Stack Developer.",
+      "Explore the technical skills, tools, and technologies used by Utsarga Manandhar in building modern web applications.",
     url: "https://utsargamanandhar.com.np/skills",
   },
   alternates: {

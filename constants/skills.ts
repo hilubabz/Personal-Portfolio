@@ -20,6 +20,8 @@ import { FaGithub } from "react-icons/fa";
 import { SiPostman } from "react-icons/si";
 import { HiLightningBolt } from "react-icons/hi";
 import { DiPhotoshop } from "react-icons/di";
+import { FaGolang } from "react-icons/fa6";
+import { BiLogoPostgresql } from "react-icons/bi";
 
 export const SKILLS = [
   {
@@ -86,6 +88,16 @@ export const SKILLS = [
         description: "Python framework for high-performance APIs",
         icon: SiFastapi,
       },
+      {
+        language: "Go",
+        description: "Go REST APIs with concurrent workers",
+        icon: FaGolang,
+      },
+      {
+        language: "ASP .NET",
+        description: "REST APIs using C#",
+        icon: AiOutlineDotNet,
+      },
     ],
   },
 
@@ -102,6 +114,11 @@ export const SKILLS = [
         language: "MongoDB",
         description: "NoSQL database for storing JSON-like documents",
         icon: DiMongodb,
+      },
+      {
+        language: "PostgreSQL",
+        description: "Relational SQL database management system",
+        icon: BiLogoPostgresql,
       },
     ],
   },
@@ -198,12 +215,6 @@ export const SKILLS = [
         description:
           "Versatile programming language for web, desktop, and enterprise applications",
         icon: FaJava,
-      },
-      {
-        language: ".NET",
-        description:
-          "Framework for building web, desktop, and backend applications using C#",
-        icon: AiOutlineDotNet,
       },
       {
         language: "Playwright",

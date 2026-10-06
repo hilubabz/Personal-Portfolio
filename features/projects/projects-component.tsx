@@ -4,6 +4,7 @@ import { projectsList } from "@/constants/project-list";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import { useMemo } from "react";
 import { Reveal } from "@/components/motion/reveal";
 import { ArrowUpRight } from "lucide-react";
 
@@ -25,6 +26,14 @@ const itemVariants: Variants = {
 };
 
 export const ProjectsComponent = () => {
+  const primaryColor = useMemo(() => {
+    if (typeof window === "undefined") return "#6366f1";
+    return (
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--primary")
+        .trim() || "#6366f1"
+    );
+  }, []);
   return (
     <main className="min-h-screen px-6 pb-24 pt-28 md:px-10 lg:px-20">
       <div className="mx-auto max-w-6xl">
@@ -54,21 +63,29 @@ export const ProjectsComponent = () => {
               key={project.name}
               className="h-full"
             >
-              <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5">
+              <motion.div
+                className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card"
+                whileHover={{
+                  y: -8,
+                  boxShadow: `0 20px 40px -12px ${primaryColor}40`,
+                  borderColor: `${primaryColor}99`,
+                }}
+                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] as const }}
+              >
                 {/* Image */}
                 <div className="relative h-52 w-full overflow-hidden bg-muted">
                   <Image
                     src={`/${project.image}`}
                     alt={project.alt}
                     fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="object-contain p-4"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
 
                 {/* Content */}
                 <div className="flex flex-1 flex-col p-5">
-                  <h3 className="mb-2 text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
+                  <h3 className="mb-2 text-lg font-semibold text-foreground">
                     {project.name}
                   </h3>
                   <p className="mb-4 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground">
@@ -99,7 +116,7 @@ export const ProjectsComponent = () => {
                     </Link>
                   )}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>

@@ -1,8 +1,39 @@
-import { posts } from "@/constants/blogs";
-import { Reveal } from "@/components/motion/reveal";
-import { Clock, PenTool } from "lucide-react";
+"use client";
 
-export const BlogComponent = () => {
+import { Reveal } from "@/components/motion/reveal";
+import { PenTool } from "lucide-react";
+import { BlogData } from "@/actions/blog";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useMemo } from "react";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
+  },
+};
+
+export const BlogComponent = ({ blogs }: { blogs: BlogData[] }) => {
+  const primaryColor = useMemo(() => {
+    if (typeof window === "undefined") return "#6366f1";
+    return (
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--primary")
+        .trim() || "#6366f1"
+    );
+  }, []);
   return (
     <main className="min-h-screen px-6 pb-24 pt-28 md:px-10 lg:px-20">
       <div className="mx-auto max-w-6xl">
@@ -25,27 +56,49 @@ export const BlogComponent = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post, i) => (
-            <Reveal key={post.title} delay={i * 0.1}>
-              <article className="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5">
-                <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-2.5 text-primary">
-                  <PenTool size={18} />
-                </div>
-                <div className="mb-3 flex items-center gap-2 text-xs text-muted-foreground">
-                  <Clock size={12} />
-                  {post.readTime}
-                </div>
-                <h2 className="mb-3 text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
-                  {post.title}
-                </h2>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {post.excerpt}
-                </p>
-              </article>
-            </Reveal>
+        <motion.div
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {blogs.map((post) => (
+            <motion.div key={post.slug} variants={itemVariants} className="h-full">
+              <Link href={`/blogs/${post.slug}`} className="block h-full">
+                <motion.article
+                  className="flex h-full flex-col rounded-xl border border-border bg-card p-6"
+                  whileHover={{
+                    y: -8,
+                    boxShadow: `0 20px 40px -12px ${primaryColor}40`,
+                    borderColor: `${primaryColor}99`,
+                  }}
+                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] as const }}
+                >
+                  {post.coverImage ? (
+                    <div className="relative mb-4 h-48 w-full overflow-hidden rounded-lg bg-muted">
+                      <Image
+                        src={post.coverImage}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="mb-4 inline-flex w-max rounded-lg bg-primary/10 p-2.5 text-primary">
+                      <PenTool size={18} />
+                    </div>
+                  )}
+                  <h2 className="mb-3 text-lg font-semibold text-foreground">
+                    {post.title}
+                  </h2>
+                  <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                    {post.metaDescription}
+                  </p>
+                </motion.article>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </main>
   );

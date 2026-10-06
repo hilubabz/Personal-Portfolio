@@ -27,10 +27,24 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground font-heading sm:text-5xl lg:text-[3.5rem] lg:leading-[1.1]">
-                I build fast, thoughtful{" "}
-                <span className="text-primary">web experiences.</span>
+              <h1 className="font-heading text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl lg:leading-[1.05]">
+                <span className="bg-linear-to-br from-foreground via-foreground/90 to-foreground/60 bg-clip-text text-transparent">
+                  Utsarga
+                </span>
+                <br />
+                <span className="bg-linear-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+                  Manandhar
+                </span>
               </h1>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <p className="text-lg font-medium tracking-wide text-muted-foreground">
+                I build fast, thoughtful{" "}
+                <span className="font-semibold text-foreground">
+                  web experiences.
+                </span>
+              </p>
             </Reveal>
 
             <Reveal delay={0.15}>

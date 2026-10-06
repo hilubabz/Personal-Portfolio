@@ -1,3 +1,4 @@
+import { getBlogs } from "@/actions/blog";
 import { BlogComponent } from "@/features/blogs/blog-component";
 import { Metadata } from "next";
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog | Utsarga Manandhar",
     description:
-      "Articles on web development and modern technologies by Utsarga Manandhar.",
+      "Insights, tutorials, and practical guides on web development and modern technologies.",
     url: "https://utsargamanandhar.com.np/blogs",
   },
   alternates: {
@@ -17,5 +18,6 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogsPage() {
-  return <BlogComponent />;
+  const res = await getBlogs();
+  return <BlogComponent blogs={res.data ?? []} />;
 }

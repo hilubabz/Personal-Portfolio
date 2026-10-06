@@ -3,6 +3,7 @@
 import { SKILLS } from "@/constants/skills";
 import { Reveal } from "@/components/motion/reveal";
 import { motion, Variants } from "framer-motion";
+import { useMemo } from "react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -22,6 +23,15 @@ const itemVariants: Variants = {
 };
 
 export const SkillsComponent = () => {
+  const primaryColor = useMemo(() => {
+    if (typeof window === "undefined") return "#6366f1";
+    return (
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--primary")
+        .trim() || "#6366f1"
+    );
+  }, []);
+
   return (
     <main className="min-h-screen px-6 pb-24 pt-28 md:px-10 lg:px-20">
       <div className="mx-auto max-w-6xl">
@@ -32,7 +42,7 @@ export const SkillsComponent = () => {
           </Reveal>
           <Reveal delay={0.05}>
             <h1 className="text-4xl font-bold tracking-tight text-foreground font-heading sm:text-5xl">
-              Skills & Technologies
+              Skills &amp; Technologies
             </h1>
           </Reveal>
         </div>
@@ -52,13 +62,23 @@ export const SkillsComponent = () => {
               </h2>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 {category.skill.map((item) => (
-                  <div
+                  <motion.div
                     key={item.language}
-                    className="group flex items-center gap-3 rounded-xl border border-border bg-card p-4 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5"
+                    className="flex items-center gap-3 rounded-xl border border-border bg-card p-4"
+                    whileHover={{
+                      y: -4,
+                      boxShadow: `0 12px 24px -8px ${primaryColor}40`,
+                      borderColor: `${primaryColor}99`,
+                    }}
+                    transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] as const }}
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <motion.div
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       <item.icon className="text-lg" />
-                    </div>
+                    </motion.div>
                     <div className="min-w-0">
                       <p className="text-sm font-medium text-foreground">
                         {item.language}
@@ -67,7 +87,7 @@ export const SkillsComponent = () => {
                         {item.description}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.section>

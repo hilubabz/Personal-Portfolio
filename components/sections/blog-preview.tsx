@@ -1,9 +1,22 @@
-import { Reveal } from "@/components/motion/reveal";
-import { posts } from "@/constants/blogs";
-import { ArrowUpRight, Clock } from "lucide-react";
-import Link from "next/link";
+"use client";
 
-export function BlogPreview() {
+import { BlogData } from "@/actions/blog";
+import { Reveal } from "@/components/motion/reveal";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { useMemo } from "react";
+
+export function BlogPreview({ blogs }: { blogs: BlogData[] }) {
+  const primaryColor = useMemo(() => {
+    if (typeof window === "undefined") return "#6366f1";
+    return (
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--primary")
+        .trim() || "#6366f1"
+    );
+  }, []);
   return (
     <section className="border-t border-border py-24">
       <div className="mx-auto max-w-6xl px-6 md:px-8">
@@ -12,7 +25,7 @@ export function BlogPreview() {
             <div>
               <p className="mb-3 text-sm font-medium text-primary">WRITING</p>
               <h2 className="text-3xl font-bold tracking-tight text-foreground font-heading sm:text-4xl">
-                Latest Posts
+                Featured Posts
               </h2>
             </div>
             <Link
@@ -25,20 +38,37 @@ export function BlogPreview() {
         </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post, i) => (
+          {blogs.map((post, i) => (
             <Reveal key={post.title} delay={i * 0.1}>
-              <article className="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5">
-                <div className="mb-4 flex items-center gap-2 text-xs text-muted-foreground">
-                  <Clock size={12} />
-                  {post.readTime}
-                </div>
-                <h3 className="mb-2 text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
-                  {post.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {post.excerpt}
-                </p>
-              </article>
+              <Link href={`/blogs/${post.slug}`} className="block h-full">
+                <motion.article
+                  className="flex h-full flex-col rounded-xl border border-border bg-card p-6"
+                  whileHover={{
+                    y: -8,
+                    boxShadow: `0 20px 40px -12px ${primaryColor}40`,
+                    borderColor: `${primaryColor}99`,
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: [0.25, 0.1, 0.25, 1] as const,
+                  }}
+                >
+                  <div className="relative mb-4 h-48 w-full overflow-hidden rounded-lg bg-muted">
+                    <Image
+                      src={post.coverImage}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {post.metaDescription}
+                  </p>
+                </motion.article>
+              </Link>
             </Reveal>
           ))}
         </div>
