@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Articles on web development, React, Next.js, TypeScript, and modern technologies by Utsarga Manandhar.",
   openGraph: {
-    title: "Blog | Utsarga Manandhar",
+    title: "Blogs & Articles | Utsarga Manandhar",
     description:
       "Insights, tutorials, and practical guides on web development and modern technologies.",
     url: "https://utsargamanandhar.com.np/blogs",

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Technical skills and technologies used by Utsarga Manandhar: React, Next.js, TypeScript, Node.js, Go, MongoDB, and more.",
   openGraph: {
-    title: "Skills | Utsarga Manandhar",
+    title: "Skills | Utsarga Manandhar Software Developer",
     description:
       "Explore the technical skills, tools, and technologies used by Utsarga Manandhar in building modern web applications.",
     url: "https://utsargamanandhar.com.np/skills",
