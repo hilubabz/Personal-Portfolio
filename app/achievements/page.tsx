@@ -7,12 +7,11 @@ export const metadata: Metadata = {
     "Notable achievements and milestones in the career of Utsarga Manandhar, Full Stack Developer.",
   openGraph: {
     title: "Achievements | Utsarga Manandhar",
-    description:
-      "Notable achievements and milestones of Utsarga Manandhar.",
+    description: "Notable achievements and milestones of Utsarga Manandhar.",
     url: "https://utsargamanandhar.com.np/achievements",
   },
   alternates: {
-    canonical: "/achievements",
+    canonical: "https://utsargamanandhar.com.np/achievements",
   },
 };
 

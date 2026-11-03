@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: "https://utsargamanandhar.com.np/contact",
   },
   alternates: {
-    canonical: "/contact",
+    canonical: "https://utsargamanandhar.com.np/contact",
   },
 };
 

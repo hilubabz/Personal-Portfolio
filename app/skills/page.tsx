@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: "https://utsargamanandhar.com.np/skills",
   },
   alternates: {
-    canonical: "/skills",
+    canonical: "https://utsargamanandhar.com.np/skills",
   },
 };
 
