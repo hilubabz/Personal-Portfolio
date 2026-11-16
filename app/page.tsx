@@ -8,26 +8,22 @@ export const metadata: Metadata = {
   description:
     "Full Stack Developer building modern web applications with Next.js, React, TypeScript, and Node.js.",
   alternates: {
-    canonical: "/",
+    canonical: "https://utsargamanandhar.com.np",
   },
 };
 
-const jsonLd = {
+const websiteJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Utsarga Manandhar",
-  jobTitle: "Full Stack Developer",
-  worksFor: {
-    "@type": "Organization",
-    name: "Global Square IT",
-  },
+  "@type": "WebSite",
+  name: "Utsarga Manandhar — Full Stack Developer",
   url: "https://utsargamanandhar.com.np",
-  sameAs: [
-    "https://github.com/hilubabz",
-    "https://linkedin.com/in/utsargamanandhar",
-  ],
   description:
-    "Full Stack Developer building modern web applications with Next.js, React, TypeScript, and Node.js.",
+    "Full Stack Developer specializing in Next.js, React, TypeScript, Node.js, and modern web technologies.",
+  author: {
+    "@type": "Person",
+    name: "Utsarga Manandhar",
+    url: "https://utsargamanandhar.com.np",
+  },
 };
 
 export default function Page() {
@@ -35,7 +31,7 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
       <Home />
     </>

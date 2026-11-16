@@ -5,6 +5,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: [
+        "/admin/",
+        "/login",
+        "/simple",
+        "/api/",
+        "/achievements",
+      ],
     },
     sitemap: "https://utsargamanandhar.com.np/sitemap.xml",
   };

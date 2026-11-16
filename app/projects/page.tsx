@@ -1,4 +1,5 @@
 import { ProjectsComponent } from "@/features/projects/projects-component";
+import { projectsList } from "@/constants/project-list";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,5 +18,30 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectPage() {
-  return <ProjectsComponent />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: projectsList.map((project, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "SoftwareApplication",
+        name: project.name,
+        description: project.description,
+        applicationCategory: "WebApplication",
+        operatingSystem: "Web",
+        url: `https://utsargamanandhar.com.np/projects/${project.slug}`,
+      },
+    })),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ProjectsComponent />
+    </>
+  );
 }
