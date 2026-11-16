@@ -1,6 +1,8 @@
 import { getBlogs } from "@/actions/blog";
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://utsargamanandhar.com.np";
   const blogs = await getBlogs();
