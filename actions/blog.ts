@@ -10,6 +10,8 @@ export interface BlogData {
   slug: string;
   coverImage: string;
   content: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export async function createBlog(blog: BlogData) {
