@@ -2,6 +2,8 @@ import { getBlogs } from "@/actions/blog";
 import { BlogComponent } from "@/features/blogs/blog-component";
 import { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Blogs & Articles",
   description:
