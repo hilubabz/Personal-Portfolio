@@ -1,6 +1,8 @@
 import { Home } from "@/features/home/home";
 import { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Utsarga Manandhar | Full Stack Developer",
   description:
