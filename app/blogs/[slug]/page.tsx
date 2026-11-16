@@ -47,8 +47,8 @@ export default async function SingleBlogPage(props: {
     headline: blog.title,
     description: blog.metaDescription,
     image: blog.coverImage ? [blog.coverImage] : [],
-    datePublished: blog.createdAt,
-    dateModified: blog.updatedAt,
+    datePublished: blog?.createdAt ?? new Date().toISOString(),
+    dateModified: blog?.updatedAt ?? new Date().toISOString(),
     author: [
       {
         "@type": "Person",

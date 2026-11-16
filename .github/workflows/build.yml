@@ -28,3 +28,5 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
