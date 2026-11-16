@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { useMemo } from "react";
 import { Reveal } from "@/components/motion/reveal";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -34,6 +34,7 @@ export const ProjectsComponent = () => {
         .trim() || "#6366f1"
     );
   }, []);
+
   return (
     <main className="min-h-screen px-6 pb-24 pt-28 md:px-10 lg:px-20">
       <div className="mx-auto max-w-6xl">
@@ -60,7 +61,7 @@ export const ProjectsComponent = () => {
           {projectsList.map((project) => (
             <motion.div
               variants={itemVariants}
-              key={project.name}
+              key={project.slug}
               className="h-full"
             >
               <motion.div
@@ -72,22 +73,31 @@ export const ProjectsComponent = () => {
                 }}
                 transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] as const }}
               >
-                {/* Image */}
-                <div className="relative h-52 w-full overflow-hidden bg-muted">
+                {/* Image linked to detail page */}
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="relative block h-52 w-full overflow-hidden bg-muted"
+                  aria-label={`View details for ${project.name}`}
+                >
                   <Image
                     src={`/${project.image}`}
                     alt={project.alt}
                     fill
-                    className="object-contain p-4"
+                    className="object-contain p-4 transition-transform duration-300 hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                </div>
+                </Link>
 
                 {/* Content */}
                 <div className="flex flex-1 flex-col p-5">
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">
-                    {project.name}
-                  </h3>
+                  <h2 className="mb-2 text-lg font-semibold text-foreground">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="transition-colors hover:text-primary"
+                    >
+                      {project.name}
+                    </Link>
+                  </h2>
                   <p className="mb-4 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {project.description}
                   </p>
@@ -104,17 +114,25 @@ export const ProjectsComponent = () => {
                     ))}
                   </div>
 
-                  {/* Link */}
-                  {project.link && (
+                  {/* Links */}
+                  <div className="mt-auto flex items-center justify-between gap-3 pt-2 border-t border-border/50">
                     <Link
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-primary"
+                      href={`/projects/${project.slug}`}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground transition-colors hover:text-primary"
                     >
-                      Live Demo <ArrowUpRight size={14} />
+                      Overview <ArrowRight size={13} />
                     </Link>
-                  )}
+                    {project.link && (
+                      <Link
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-foreground transition-colors hover:text-primary"
+                      >
+                        Live Demo <ArrowUpRight size={13} />
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             </motion.div>

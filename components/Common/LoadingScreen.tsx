@@ -51,6 +51,7 @@ export function LoadingScreen() {
 
   return (
     <div
+      aria-hidden="true"
       className="fixed inset-0"
       style={{ zIndex: 99999, pointerEvents: isExiting ? "none" : "auto" }}
     >

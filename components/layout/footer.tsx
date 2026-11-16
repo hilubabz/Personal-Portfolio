@@ -16,6 +16,54 @@ export function Footer() {
             </p>
           </div>
 
+          <nav
+            aria-label="Footer Navigation"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground"
+          >
+            <Link href="/" className="transition-colors hover:text-foreground">
+              Home
+            </Link>
+            <Link href="/projects" className="transition-colors hover:text-foreground">
+              Projects
+            </Link>
+            <Link href="/experience" className="transition-colors hover:text-foreground">
+              Experience
+            </Link>
+            <Link href="/skills" className="transition-colors hover:text-foreground">
+              Skills
+            </Link>
+            <Link href="/blogs" className="transition-colors hover:text-foreground">
+              Blogs
+            </Link>
+            <Link href="/contact" className="transition-colors hover:text-foreground">
+              Contact
+            </Link>
+          </nav>
+
+          <nav
+            aria-label="Footer Navigation"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground"
+          >
+            <Link href="/" className="transition-colors hover:text-foreground">
+              Home
+            </Link>
+            <Link href="/projects" className="transition-colors hover:text-foreground">
+              Projects
+            </Link>
+            <Link href="/experience" className="transition-colors hover:text-foreground">
+              Experience
+            </Link>
+            <Link href="/skills" className="transition-colors hover:text-foreground">
+              Skills
+            </Link>
+            <Link href="/blogs" className="transition-colors hover:text-foreground">
+              Blogs
+            </Link>
+            <Link href="/contact" className="transition-colors hover:text-foreground">
+              Contact
+            </Link>
+          </nav>
+
           <div className="flex items-center gap-4">
             <Link
               href="https://github.com/hilubabz"
